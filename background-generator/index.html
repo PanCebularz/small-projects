@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Gradient background</title>
+        <meta name="description" content="Simple CSS background generator">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body id="gradient">
+        <h1>Background generator</h1>
+        <h2>Create CSS background</h2>
+        <input class="color1" type="color" name="color1" value="#FF0000">
+        <input class="color2" type="color" name="color2" value="#FFFF00">
+        <div id="buttons">
+            <button id="linear" class="gradient-type">Linear gradient</button>
+            <button id="radial" class="gradient-type">Radial gradient</button>
+            <button class="gradient-type" id="conic">Conic gradient</button>
+        </div>
+        <input type="text" value="linear-gradient(to right, red , yellow);" id="myInput" disabled>
+        <button id="copy">Copy to clipboard</button>
+
+        <script src="script.js" async defer></script>
+    </body>
+</html>
