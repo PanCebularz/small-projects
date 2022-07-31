@@ -1,23 +1,20 @@
-function select(input) {
-    return document.querySelector(input);
+let select = (input) => document.querySelector(input);
+
+let getId = (input) => document.getElementById(input);
+
+const color1 = select(".color1");
+const color2 = select(".color2");
+const body = select("#gradient");
+const copyButton = select("#copy");
+const copyText = select("#myInput");
+const buttons = {
+    linearBtn: select("#linear"),
+    radialBtn: select("#radial"),
+    conicBtn: select("#conic")
 }
 
-function getId(input) {
-    return document.getElementById(input);
-}
 
-var css = select("h3");
-var color1 = select(".color1");
-var color2 = select(".color2");
-var body = select("#gradient");
-var copyButton = select("#copy");
-var copyText = document.getElementById("myInput");
-var linearBtn = select("#linear");
-var radialBtn = select("#radial");
-var conicBtn = select("#conic");
-
-
-function copyToClipboard() {
+let copyToClipboard = () => {
     /* Select the text field */
     copyText.select();
     copyText.setSelectionRange(0, 99999); /* For mobile devices */
@@ -28,46 +25,44 @@ function copyToClipboard() {
     copiedAlert();
   }
 
-function copiedAlert() {
+let copiedAlert = () => {
     copyText.value = "Code copied!";
 }
 
-var gradientType = "linear";
-var direction = "to right";
+let gradientType = "linear";
+let direction = "to right";
 
-// function radialGradient() {
-//     radialBtn.classList.add("active");
-// }
-
-function changeColor() {
+let changeColor = () => {
     //generate background using color input from user
-    body.style.background = gradientType + "-gradient("+direction+", " + color1.value + ", " + color2.value + ")";
+    body.style.background = `${gradientType}-gradient(${direction}, ${color1.value}, ${color2.value})`;
     //show css code
     copyText.value = body.style.background + ";";
 }
 
-function linearGradient() {
+
+let linearGradient = () => {
     gradientType = "linear";
     direction = "to right";
     changeColor();
 }
 
-function radialGradient() {
+let radialGradient = () => {
     gradientType = "radial";
     direction = "circle at center";
     changeColor();
 }
 
-function conicGradient() {
+let conicGradient = () => {
     gradientType = "conic";
     direction = "from 90deg";
     changeColor();
 }
 
+
 color1.addEventListener("input", changeColor);
 color2.addEventListener("input", changeColor);
 copyButton.addEventListener("click", copyToClipboard);
 copyText.addEventListener("copy", copiedAlert);
-linearBtn.addEventListener("click", linearGradient);
-radialBtn.addEventListener("click", radialGradient);
-conicBtn.addEventListener("click", conicGradient);
+buttons.linearBtn.addEventListener("click", linearGradient);
+buttons.radialBtn.addEventListener("click", radialGradient);
+buttons.conicBtn.addEventListener("click", conicGradient);
